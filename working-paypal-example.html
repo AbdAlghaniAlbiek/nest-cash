@@ -1,0 +1,32 @@
+<script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD"></script>
+
+<div id="paypal-button-container"></div>
+
+<script>
+paypal.Buttons({
+  createOrder: function (data, actions) {
+    // Call your server to create the order
+    return fetch('/api/orders', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(res => res.json()).then(order => order.id);
+  },
+
+  onApprove: function (data, actions) {
+    // Capture the order on your server
+    return fetch(`/api/orders/${data.orderID}/capture`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then(details => {
+      alert('Transaction completed by ' + details.payer.name.given_name);
+      console.log('Capture details:', details);
+    });
+  }
+}).render('#paypal-button-container');
+</script>
