@@ -23,6 +23,9 @@ importers:
       '@nestjs/swagger':
         specifier: ^11.2.0
         version: 11.2.0(@nestjs/common@11.1.6(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.6)(reflect-metadata@0.2.2)
+      '@paypal/checkout-server-sdk':
+        specifier: ^1.0.3
+        version: 1.0.3
       reflect-metadata:
         specifier: ^0.2.2
         version: 0.2.2
@@ -767,6 +770,15 @@ packages:
 
   '@paralleldrive/cuid2@2.2.2':
     resolution: {integrity: sha512-ZOBkgDwEdoYVlSeRbYYXs0S9MejQofiVYoTbKzy/6GQa39/q5tQU2IX46+shYnUkpEl3wc+J6wRlar7r2EK2xA==}
+
+  '@paypal/checkout-server-sdk@1.0.3':
+    resolution: {integrity: sha512-UEdq8akEdMz0Vs4qoQFU2gMp8PpyE/HKyMwiZuK4vIWUKl8jfd1fWKjQN5cDFm9NkFUIp5U7h++rdMOVj9WMNA==}
+    engines: {node: '>=8'}
+    deprecated: 'Package no longer supported. The author suggests using the @paypal/paypal-server-sdk package instead: https://www.npmjs.com/package/@paypal/paypal-server-sdk. Contact Support at https://www.npmjs.com/support for more info.'
+
+  '@paypal/paypalhttp@1.0.1':
+    resolution: {integrity: sha512-DC7AHxTT7drF6dUi3YaFdPVuT15sIkpD5H2eHmdtFgxM4UanS1o1ZDfMhR9mpxd8o+X6pz2r+EZVRRq+n1cssQ==}
+    engines: {node: '>=4'}
 
   '@pkgjs/parseargs@0.11.0':
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
@@ -3901,6 +3913,12 @@ snapshots:
   '@paralleldrive/cuid2@2.2.2':
     dependencies:
       '@noble/hashes': 1.8.0
+
+  '@paypal/checkout-server-sdk@1.0.3':
+    dependencies:
+      '@paypal/paypalhttp': 1.0.1
+
+  '@paypal/paypalhttp@1.0.1': {}
 
   '@pkgjs/parseargs@0.11.0':
     optional: true

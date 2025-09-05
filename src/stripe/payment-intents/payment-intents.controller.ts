@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   Param,
+  Patch,
   Post,
   Put,
 } from '@nestjs/common';
@@ -30,6 +31,11 @@ export class PaymentIntentsController {
   @Delete(':id')
   async delete(@Param('id') id: string) {
     return await this.service.cancel(id);
+  }
+
+  @Patch(':id/confirm')
+  async confirm(@Param('id') id: string) {
+    return await this.service.confirm(id);
   }
 
   @Get(':id')
